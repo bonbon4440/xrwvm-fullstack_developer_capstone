@@ -16,6 +16,9 @@ from django.views.decorators.csrf import csrf_exempt
 # from .populate import initiate
 from .models import CarMake, CarModel
 
+# Added this on my own
+from .restapis import get_request
+
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 

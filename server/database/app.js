@@ -67,6 +67,8 @@ app.get('/fetchDealers', async (req, res) => {
     }
 });
 
+
+
 // Express route to fetch Dealers by a particular state
 app.get('/fetchDealers/:state', async (req, res) => {
 //Write your code here
@@ -119,4 +121,19 @@ app.post('/insert_review', express.raw({ type: '*/*' }), async (req, res) => {
 // Start the Express server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+});
+
+// Express route to fetch all dealerships
+app.get('/fetchDealers', async (req, res) => {
+//Write your code here
+});
+
+// Express route to fetch Dealers by a particular state
+app.get('/fetchDealers/:state', async (req, res) => {
+//Write your code here
+});
+
+// Express route to fetch dealer by a particular id
+app.get('/fetchDealer/:id', async (req, res) => {
+//Write your code here
 });
