@@ -18,8 +18,7 @@ from .populate import initiate
 
 from .models import CarMake, CarModel
 
-# Added this on my own
-from .restapis import get_request
+from .restapis import get_request, analyze_review_sentiments, post_review
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
