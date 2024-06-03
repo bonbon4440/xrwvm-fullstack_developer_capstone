@@ -1,11 +1,11 @@
 # Uncomment the required imports before adding the code
 
-# from django.shortcuts import render, get_object_or_404, redirect
-# from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect  # noqa: F401
+from django.http import HttpResponseRedirect, HttpResponse  # noqa: F401
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
-# from django.contrib import messages
-# from datetime import datetime
+from django.contrib import messages  # noqa: F401
+from datetime import datetime  # noqa: F401
 
 from django.http import JsonResponse
 from django.contrib.auth import login, authenticate
@@ -17,7 +17,7 @@ from .populate import initiate
 
 from .models import CarMake, CarModel
 
-from .restapis import get_request, analyze_review_sentiments  # , post_review
+from .restapis import get_request, analyze_review_sentiments, post_review
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -52,7 +52,7 @@ def logout_request(request):
 # Create a `registration` view to handle sign up request
 @csrf_exempt
 def registration(request):
-    # context = {}
+    context = {}  # noqa: F841
 
     data = json.loads(request.body)
     username = data['userName']
@@ -61,7 +61,7 @@ def registration(request):
     last_name = data['lastName']
     email = data['email']
     username_exist = False
-    # email_exist = False
+    email_exist = False  # noqa: F401
     try:
         # Check if user already exists
         User.objects.get(username=username)
@@ -149,9 +149,9 @@ def get_dealer_details(request, dealer_id):
 # def add_review(request):
 def add_review(request):
     if (request.user.is_anonymous is False):
-        # data = json.loads(request.body)
+        data = json.loads(request.body)
         try:
-            # response = post_review(data)
+            response = post_review(data)  # noqa: F841
             return JsonResponse({"status": 200})
         except Exception:
             return JsonResponse(
